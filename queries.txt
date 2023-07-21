@@ -1,0 +1,46 @@
+
+create table member(id_member int primary key auto_increment, 
+					name varchar(45),
+                    email varchar(255) unique,
+                    password varchar(255),
+                    status varchar(8)
+                    );
+
+create table menu(id_menu int primary key auto_increment,
+				  title varchar(80),
+                  description varchar(300),
+                  price int,
+                  category varchar(45),
+                  path_image varchar(255)
+                );
+                
+create table orders(
+		    id_orders int primary key auto_increment,
+                    id_member int,
+                    id_menu int,
+                    foreign key (id_member) references member(id_member),
+                    foreign key (id_menu) references menu(id_menu)
+					);
+                    
+create table reseravtion(
+					id_reservation int primary key auto_increment,
+                    email varchar(255),
+                    phone varchar(255),
+                    hour time,
+                    fname varchar(45),
+                    lname varchar(45),
+                    tailOfGroup varchar(1),
+                    deteRev date,
+                    id_member int,
+                    foreign key (id_member) references member(id_member)
+        );
+        
+create table cart(
+				id_cart int primary key,
+                id_menu int,
+                id_member int,
+                special_request varchar(255),
+                quantite int,
+                foreign key (id_menu) references menu(id_menu),
+                foreign key (id_member) references member(id_member)
+				);

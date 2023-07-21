@@ -1,0 +1,21 @@
+.operations a {
+    text-decoration: none;
+    padding: .3em .8em;
+    color: navy;
+    border-radius: .5em;
+}
+
+.operations a:hover {
+    background-color: navy;
+    color: white
+}
+
+.operations {
+    width: fit-content;
+    margin: auto;
+}
+
+.activeLink {
+    background-color: navy;
+    color: white !important;
+}
